@@ -84,7 +84,7 @@ function getWeather() {
         var currentTemp = response.main.temp;
         var currentHum = response.main.humidity;
         var currentWind = response.wind.speed;
-        //var currentUV = 
+      
         var currentCityResult = "#current-city";
         var currentWeatherResult = "#current-weather";
         var currentTempResult = "#current-temp";
@@ -107,21 +107,13 @@ $("button").on("click", function () {
     getWeather(city);
     getForecast(city);
     updateCurrent();
-    //makeCityList();
-    //saveCity(city);
+    makeCityButton(city);
 });
 
-function makeCityButton() {
-    var cityButton = $("<button>", { 'class': 'cityBtn' }).html("city");
-    cityList.append(cityButton);
+// function makeCityButton() {
+//     var cityButton = $("<button>", { 'class': 'cityBtn' }).html("city");
+//     var cityList = "#city-list";
+//     $(cityList).append(cityButton);
+// };
 
-
-
-};
-
-    // function saveCity(){
-    //     var city = $("#city-to-search").val().trim();
-    //     localStorage.setItem("value0", city.value);
-    //     var savedData = localStorage.getItem("value0");
-    //     console.log(savedData);
-    // }
+    
