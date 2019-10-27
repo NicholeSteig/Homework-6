@@ -9,19 +9,12 @@ function getForecast() {
     }).then(function (response) {
         for (var i = 0; i < 5; i++){
             var responseNumber = i * 8;
-        console.log(response);
        var responseValue = response.list[responseNumber];
         var dayDate = responseValue.dt_txt;
-        console.log(dayDate);
         var dayWeather = responseValue.weather[0].main;
         var dayTemp = responseValue.main.temp;
         var dayHum = responseValue.main.humidity;
         var dayWind = responseValue.wind.speed;
-
-        console.log(dayWeather);
-        console.log(dayTemp);
-        console.log(dayHum);
-        console.log(dayWind);
 
         var dayValue = i + 1;
         var dayDateResult = "#day-" + dayValue;
@@ -51,7 +44,7 @@ function getWeather() {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        
+
         var cityName = response.name;
         var currentWeather = response.weather[0].main;
         var currentTemp = response.main.temp;
