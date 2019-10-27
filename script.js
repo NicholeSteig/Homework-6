@@ -80,7 +80,6 @@ $("button").on("click", function () {
     event.preventDefault();
     getWeather(city);
     getForecast(city);
-    updateCurrent();
 });
 
 // function makeCityButton() {
