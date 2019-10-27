@@ -82,10 +82,5 @@ $("button").on("click", function () {
     getForecast(city);
 });
 
-// function makeCityButton() {
-//     var cityButton = $("<button>", { 'class': 'cityBtn' }).html("city");
-//     var cityList = "#city-list";
-//     $(cityList).append(cityButton);
-// };
 
     
