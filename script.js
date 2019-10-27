@@ -44,27 +44,23 @@ function getForecast() {
         var dayHum = responseValue.main.humidity;
         var dayWind = responseValue.wind.speed;
 
-
-        //var dayUV =
-        // var dayDiv = "#current-weather";
-        // $(dayDiv).text(cityName);
-        // updateCurrent(response);
         console.log(dayWeather);
         console.log(dayTemp);
         console.log(dayHum);
         console.log(dayWind);
 
-        // var dayDateResult = "#day-" + i;
-        // var dayWeatherResult = "#weather-" + i;
-        // var dayTempResult = "#temp-" + i;
-        // var dayHumResult = "#humid-" + i;
-        // var dayWindResult = "#wind-" + i;
+        var dayValue = i + 1;
+        var dayDateResult = "#day-" + dayValue;
+        var dayWeatherResult = "#weather-" + dayValue;
+        var dayTempResult = "#temp-" + dayValue;
+        var dayHumResult = "#humid-" + dayValue;
+        var dayWindResult = "#wind-" + dayValue;
 
-        // $(dayDateResult).text("Forecast for " + dayDate);
-        // $(dayWeatherResult).text("Weather: " + dayWeather);
-        // $(dayTempResult).text("Temperature:  " + dayTemp + " degrees K");
-        // $(dayHumResult).text("Humidity: " + dayHum + "%");
-        // $(dayWindResult).text("Wind Speed: " + dayWind + " mph");
+        $(dayDateResult).text("Forecast for " + dayDate);
+        $(dayWeatherResult).text("Weather: " + dayWeather);
+        $(dayTempResult).text("Temperature:  " + dayTemp + " degrees");
+        $(dayHumResult).text("Humidity: " + dayHum + "%");
+        $(dayWindResult).text("Wind Speed: " + dayWind + " mph");
 
         };
 
@@ -86,24 +82,21 @@ function getWeather() {
         var cityName = response.name;
         var currentWeather = response.weather[0].main;
         var currentTemp = response.main.temp;
-        //var currentTempF = 
         var currentHum = response.main.humidity;
         var currentWind = response.wind.speed;
         //var currentUV = 
         var currentCityResult = "#current-city";
         var currentWeatherResult = "#current-weather";
         var currentTempResult = "#current-temp";
-        //convert to F
-        //f = k × 9/5 - 459.67
         var currentHumResult = "#current-humid";
         var currentWindResult = "#current-wind";
 
         $(currentCityResult).text("Weather In " + cityName);
         $(currentWeatherResult).text("Current Weather: " + currentWeather);
-        $(currentTempResult).text("Current Temperature:  " + currentTemp + " degrees K");
+        $(currentTempResult).text("Current Temperature:  " + currentTemp + "° F");
         $(currentHumResult).text("Current Humidity: " + currentHum + "%");
         $(currentWindResult).text("Current Wind Speed: " + currentWind + " mph");
-        //updateCurrent(response);
+        
 
     });
 };
@@ -111,7 +104,7 @@ function getWeather() {
 $("button").on("click", function () {
     var city = $("#city-to-search").val;
     event.preventDefault();
-    //getWeather(city);
+    getWeather(city);
     getForecast(city);
     updateCurrent();
     //makeCityList();
