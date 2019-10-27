@@ -1,33 +1,7 @@
-//var weatherKey = "ee07ff4c3d03e19a43009d1b835b10fc"
-//function date() {
-
-//};
-
-function updateCurrent() {
-
-    //var currentCard = $("#current-weather");
-
-    //Print date
-    //var today = moment().format('dddd, MMMM Do').val();
-
-    //$("#current-forecast").append(today);
-    //console.log(today);
-    //print temp
-
-    //print humidity
-    //print wind speed
-    //print UV Index
-
-};
-
-
-
 function getForecast() {
 
     var city = $("#city-to-search").val().trim();
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast/?q=" + city + "&units=imperial&APPID=ee07ff4c3d03e19a43009d1b835b10fc"
-
-    //var queryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&cnt=5,&appid=ee07ff4c3d03e19a43009d1b835b10fc";
 
     $.ajax({
         url: queryURL,
@@ -58,7 +32,7 @@ function getForecast() {
 
         $(dayDateResult).text("Forecast for " + dayDate);
         $(dayWeatherResult).text("Weather: " + dayWeather);
-        $(dayTempResult).text("Temperature:  " + dayTemp + " degrees");
+        $(dayTempResult).text("Temperature:  " + dayTemp + "° F");
         $(dayHumResult).text("Humidity: " + dayHum + "%");
         $(dayWindResult).text("Wind Speed: " + dayWind + " mph");
 
@@ -71,7 +45,7 @@ function getWeather() {
 
     var city = $("#city-to-search").val();
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + ",us,&appid=ee07ff4c3d03e19a43009d1b835b10fc";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=ee07ff4c3d03e19a43009d1b835b10fc";
 
     $.ajax({
         url: queryURL,
