@@ -51,8 +51,7 @@ function getWeather() {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-
-        console.log(response);
+        
         var cityName = response.name;
         var currentWeather = response.weather[0].main;
         var currentTemp = response.main.temp;
