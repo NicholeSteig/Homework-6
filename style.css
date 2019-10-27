@@ -1,0 +1,21 @@
+.header {
+background-color: #1F618D;
+color: #E5E7E9;
+text-align: center;
+padding: 10px;
+}
+
+
+.card {
+    border: none;
+    text-align: center;
+    color: #1F618D;
+}
+
+.mb-3{
+    padding: 8px;
+}
+
+.col-sm-2 {
+    color: #1F618D;
+}
