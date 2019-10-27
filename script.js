@@ -25,25 +25,48 @@ function updateCurrent() {
 function getForecast() {
 
     var city = $("#city-to-search").val().trim();
+    var queryURL = "http://api.openweathermap.org/data/2.5/forecast/?q=" + city + "&units=imperial&APPID=ee07ff4c3d03e19a43009d1b835b10fc"
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial,us,&appid=ee07ff4c3d03e19a43009d1b835b10fc";
+    //var queryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&cnt=5,&appid=ee07ff4c3d03e19a43009d1b835b10fc";
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-
+        for (var i = 0; i < 5; i++){
+            var responseNumber = i * 8;
         console.log(response);
-        // var cityName = response.city.name;
-        // var currentWeather = response.
-        // var currentTemp = response.city
-        // var currentHum =
-        // var currentWind =
-        // var currentUV =
-        // var currentDiv = "#current-weather";
-        // $(currentDiv).text(cityName);
-        //updateCurrent(response);
+       var responseValue = response.list[responseNumber];
+        var dayDate = responseValue.dt_txt;
+        console.log(dayDate);
+        var dayWeather = responseValue.weather[0].main;
+        var dayTemp = responseValue.main.temp;
+        var dayHum = responseValue.main.humidity;
+        var dayWind = responseValue.wind.speed;
 
+
+        //var dayUV =
+        // var dayDiv = "#current-weather";
+        // $(dayDiv).text(cityName);
+        // updateCurrent(response);
+        console.log(dayWeather);
+        console.log(dayTemp);
+        console.log(dayHum);
+        console.log(dayWind);
+
+        // var dayDateResult = "#day-" + i;
+        // var dayWeatherResult = "#weather-" + i;
+        // var dayTempResult = "#temp-" + i;
+        // var dayHumResult = "#humid-" + i;
+        // var dayWindResult = "#wind-" + i;
+
+        // $(dayDateResult).text("Forecast for " + dayDate);
+        // $(dayWeatherResult).text("Weather: " + dayWeather);
+        // $(dayTempResult).text("Temperature:  " + dayTemp + " degrees K");
+        // $(dayHumResult).text("Humidity: " + dayHum + "%");
+        // $(dayWindResult).text("Wind Speed: " + dayWind + " mph");
+
+        };
 
     });
 };
@@ -52,7 +75,7 @@ function getWeather() {
 
     var city = $("#city-to-search").val();
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial,us,&appid=ee07ff4c3d03e19a43009d1b835b10fc";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + ",us,&appid=ee07ff4c3d03e19a43009d1b835b10fc";
 
     $.ajax({
         url: queryURL,
@@ -88,7 +111,7 @@ function getWeather() {
 $("button").on("click", function () {
     var city = $("#city-to-search").val;
     event.preventDefault();
-    getWeather(city);
+    //getWeather(city);
     getForecast(city);
     updateCurrent();
     //makeCityList();
@@ -96,8 +119,8 @@ $("button").on("click", function () {
 });
 
 function makeCityButton() {
-var cityButton = $("<button>", {'class': 'cityBtn'}).html("city");
-cityList.append(cityButton);
+    var cityButton = $("<button>", { 'class': 'cityBtn' }).html("city");
+    cityList.append(cityButton);
 
 
 
