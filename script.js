@@ -1,7 +1,7 @@
 function getForecast() {
 
     var city = $("#city-to-search").val().trim();
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast/?q=" + city + "&units=imperial&APPID=ee07ff4c3d03e19a43009d1b835b10fc"
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast/?q=" + city + "&units=imperial&APPID=ee07ff4c3d03e19a43009d1b835b10fc"
 
     $.ajax({
         url: queryURL,
